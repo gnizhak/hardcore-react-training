@@ -16,6 +16,16 @@ const App: FC<Props> = props => {
     getDucks().then(setDucks)
   }, [])
 
+  useEffect(() => {
+    const i = setInterval(() => {
+      setSecondsElapsed(last => secondsElapsed+1)
+    }, 1000)
+
+    return () => {
+      clearInterval(i)
+    }
+  }, [])
+
   return (<>
   <main>
     <h1>Sarastia 180 Agile Business Enterprise Resource Planner</h1>
