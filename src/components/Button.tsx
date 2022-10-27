@@ -1,11 +1,21 @@
-import React, { ComponentProps, ComponentPropsWithoutRef, ComponentPropsWithRef, FC, forwardRef, ForwardRefRenderFunction, ReactNode } from "react"
-import { buttonClass } from "./Duck.css"
+import {
+  ComponentPropsWithRef, forwardRef,
+  ForwardRefRenderFunction
+} from "react"
+import { buttonClass } from "./Button.css"
 
 type Props = ComponentPropsWithRef<"button">
 
-const Button: ForwardRefRenderFunction<HTMLButtonElement, Props> = ({ children, ...rest }) => {
-  const classes="custom"
-  return (<button {...rest} className={buttonClass}>{children}</button>)
+const Button: ForwardRefRenderFunction<HTMLButtonElement, Props> = (
+  { children, ...rest },
+  ref
+) => {
+  const classes = "custom"
+  return (
+    <button {...rest} ref={ref} className={buttonClass}>
+      {children}
+    </button>
+  )
 }
 
 export default forwardRef(Button)

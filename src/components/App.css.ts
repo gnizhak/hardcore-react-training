@@ -1,4 +1,4 @@
-import { globalStyle } from "@vanilla-extract/css";
+import { globalStyle, style } from "@vanilla-extract/css";
 import { none } from "ramda";
 import { vars } from "../theme.css";
 
@@ -19,4 +19,11 @@ globalStyle("ul", {
 
 globalStyle("ul li", {
   margin: `${vars.space.small} 0`
+})
+
+export const spinnerClass = style({
+  position: "fixed",
+  top: vars.space.small,
+  right: vars.space.small,
+  fontSize: "3em"
 })

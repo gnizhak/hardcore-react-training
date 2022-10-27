@@ -33,7 +33,7 @@ const HireDuckForm: FC<Props> = ({ hireDuck }) => {
         firstName: "",
         lastName: ""
       }}
-      onSubmit={(values) => {
+      onSubmit={(values, { resetForm }) => {
         console.log(values, "Form Submit")
         const prospect: DuckProspectType = {
           ...values,
@@ -50,6 +50,7 @@ const HireDuckForm: FC<Props> = ({ hireDuck }) => {
         }
 
         hireDuck(prospect)
+        resetForm()
       }}
       validateOnMount
       validationSchema={schema}
@@ -58,13 +59,13 @@ const HireDuckForm: FC<Props> = ({ hireDuck }) => {
         return (
           <Form>
             <div>
-              <label>Etunimi</label>
-              <Field type="text" name="firstName" />
+              <label htmlFor="firstName">Etunimi</label>
+              <Field type="text" name="firstName" id="firstName" />
               <ErrorMessage name="firstName" />
             </div>
             <div>
-              <label>Sukunimi</label>
-              <Field type="text" name="lastName" />
+              <label htmlFor="lastName">Sukunimi</label>
+              <Field type="text" name="lastName" id="lastName" />
               <ErrorMessage name="lastName" />
             </div>
             <div>

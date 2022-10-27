@@ -2,6 +2,7 @@ import { FC, memo } from "react"
 import { DuckType } from "../services/duck"
 import { buttonClass, duckClass, femaleClass, maleClass } from "./Duck.css"
 import cx from "clsx"
+import { Link } from "react-router-dom"
 
 type Props = {
   duck: DuckType
@@ -19,13 +20,15 @@ const Duck: FC<Props> = (
     [femaleClass]: duck.gender === 1
   })
 
-
   return (
   <div className={classes}>
-    <strong>{duck.lastName}</strong>, {duck.firstName} {showConfidentialInformation ? `(${duck.age.toFixed(2)})` : ""}
-    <button className={buttonClass} onClick={() => {
-      fireDuck(duck.id)
-    }}>Vapauta</button>
+    <Link to={`/duck/${duck.id}`}><strong>{duck.lastName}</strong>, {duck.firstName}{showConfidentialInformation ? ` (${duck.age.toFixed(2)})` : ""}</Link>
+    <button
+      className={buttonClass}
+      disabled={duck.isBeingFired}
+      onClick={() => {
+        fireDuck(duck.id)
+      }}>Vapauta</button>
   </div>)
 }
 

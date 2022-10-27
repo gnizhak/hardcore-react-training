@@ -4,9 +4,10 @@ import { vars } from "../theme.css";
 export
 const buttonClass = style({
   borderRadius: "8px",
+  marginTop: vars.space.small,
   padding: vars.space.small,
   cursor: "pointer",
   ":hover": {
-    color: "wheat"
+    background: "wheat"
   }
 })
