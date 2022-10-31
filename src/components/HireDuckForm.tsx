@@ -1,9 +1,8 @@
-import { FC, useEffect, useRef, useState } from "react"
-import { DuckProspectType } from "../services/duck"
 import { ErrorMessage, Field, Form, Formik } from "formik"
-import * as Yup from "yup"
+import { FC, useEffect, useRef } from "react"
 import { v4 } from "uuid"
-import { F } from "ramda"
+import * as Yup from "yup"
+import { DuckProspectType } from "../services/duck"
 import Button from "./Button"
 
 const schema = Yup.object().shape({
